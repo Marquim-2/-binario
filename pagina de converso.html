@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="aulacss02.css">
+    <title>Conversor</title>
+</head>
+<body>
+    <h1>Conversor Binário</h1>
+
+    <hr>
+
+    <div class="principal">
+
+        <div class="secundaria">
+            <label for="converter">
+                numero a ser convertido
+            </label>
+            <input type="number" id="id_decimal">
+        </div>
+        
+        <hr>
+
+        <div class="secundaria">
+            <label>
+                <label for="convertido">
+                    numero convertido
+                </label>
+                <input type="number" id="id_binario">
+            </label>
+        </div>
+
+        <hr>
+
+        <button onclick="converte_binario()">Enviar</button>
+
+    </div>
+
+    <script>
+        function converte_binario() {
+            var decimal = document.getElementById("id_decimal").value;
+            var binario = decimal_binario(Number(decimal));
+            document.getElementById("id_binario").value = binario;
+        }
+
+        function decimal_binario(numero) {
+            if (numero < 2) {
+                return numero.toString();
+            }
+            binario = "";
+            while (numero > 1) {
+                resto = numero % 2;
+                binario = resto.toString() + binario;
+                numero = Math.floor(numero / 2);
+            }
+            return numero.toString() + binario;
+        }
+    </script>
+</body>
+</html>
